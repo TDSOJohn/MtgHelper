@@ -1,0 +1,12 @@
+.nav_bar {
+    width: 100%;
+}
+
+.nav_bar li {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.current {
+    color: #333;
+}
