@@ -1,12 +1,58 @@
+@font-face {
+    font-family: 'mtgFont';
+    src: url('../fonts/beleren-bold_P1.01.ttf') format('truetype'),
+    url('../fonts/beleren-boldP101.woff') format('woff');
+}
+
+body {
+    font-family: 'mtgFont';
+    padding: 0;
+    margin: 0;
+}
+
 .nav_bar {
     width: 100%;
+    font-size: 40px;
+    padding-bottom: 20px;
+    background-color: #222;
+    position: fixed;
+    top: 0px;
+}
+
+.nav_bar ul {
+    padding: 0;
+    list-style-type: none;
 }
 
 .nav_bar li {
+    float: left;
     width: 50%;
     box-sizing: border-box;
+    text-align: center;
+}
+
+.nav_bar a {
+    text-decoration: none;
+    color: #eee;
+}
+
+a:visited {
+    color: #eee;
 }
 
 .current {
-    color: #333;
+    color: #eee;
+}
+
+.column {
+    width: 50%;
+    margin: 0;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+}
+
+.main_content {
+    margin: 0;
+    padding: 160px 0px 0px 0px;
 }
