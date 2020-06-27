@@ -1,14 +1,3 @@
-@font-face {
-    font-family: 'mtgFont';
-    src: url('../fonts/beleren-bold_P1.01.ttf') format('truetype'),
-    url('../fonts/beleren-boldP101.woff') format('woff');
-}
-
-body {
-    font-family: 'mtgFont';
-    padding: 0;
-    margin: 0;
-}
 
 .nav_bar {
     width: 100%;
@@ -42,17 +31,4 @@ a:visited {
 
 .current {
     color: #eee;
-}
-
-.column {
-    width: 50%;
-    margin: 0;
-    box-sizing: border-box;
-    float: left;
-    text-align: center;
-}
-
-.main_content {
-    margin: 0;
-    padding: 160px 0px 0px 0px;
 }
