@@ -8,29 +8,43 @@
     clear: both;
 }
 
-body {
+html, body {
     font-family: 'mtgFont';
     padding: 0;
     margin: 0;
-}
-
-.column {
-    width: 50%;
-    margin: 0;
-    box-sizing: border-box;
-    float: left;
-    text-align: center;
     height: 100%;
+    overflow: hidden;
 }
 
 .main_content {
     margin: 0;
-    padding: 100px 0px 0px 0px;
+    padding: 0;
+    height: 100%;
 }
 
 .main_content h3 {
     padding: 30px;
     font-size: 36px;
+}
+
+.column {
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+.player_name {
+    width: 100%;
+    margin: 0;
+    padding: 50px;
+    box-sizing: border-box;
+    background-color: #333;
+    color: #eee;
 }
 
 .button {
@@ -47,16 +61,18 @@ body {
     background-color: #444;
 }
 
-#player_1 button {
-    float: right;
-}
-
-#player_2 button {
-    float: left;
-}
-
 @media(max-width: 800px) {
     .button {
-        width: 80%;
+        width: 50%;
+    }
+
+    .main_content h3 {
+        padding: 15px;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-width: 800px){
+    .main_content h3 {
+        float: left;
     }
 }

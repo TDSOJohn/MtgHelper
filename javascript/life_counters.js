@@ -1,50 +1,48 @@
-let player_1_life   = 20;
-let player_2_life   = 20;
+var players = [];
 
-let player_1_rgb_code   = 0;
-let player_2_rgb_code   = 0;
-
-let player_1_div        = document.getElementById('player_1');
-let player_2_div        = document.getElementById('player_2');
-let player_1_counter    = document.getElementById('p1_life');
-let player_2_counter    = document.getElementById('p2_life');
-
-let life_buttons     = document.querySelectorAll('.button');
-
-function update_rgb()
+//  Player class containing life, rgb value and DOM update methods and values
+function Player(div_in, counter_in)
 {
-    player_1_rgb_code   = "rgb(" + (255 * ((25 - player_1_life) / 25)) + "," + (255 * (player_1_life / 25)) + ",0)";
-    player_2_rgb_code   = "rgb(" + (255 * ((25 - player_2_life) / 25)) + "," + (255 * (player_2_life / 25)) + ",0)";
+    this.life       = 20;
+    this.rgb_code   = "";
+    this.div        = div_in;
+    this.counter    = counter_in;
 
-    player_1_div.style.backgroundColor = player_1_rgb_code;
-    player_2_div.style.backgroundColor = player_2_rgb_code;
-    player_1_counter.innerHTML = player_1_life;
-    player_2_counter.innerHTML = player_2_life;
+    this.updateRgb  = function() {
+        this.rgb_code   = "rgb(" + (255 * ((25 - this.life) / 25)) + "," + (255 * (this.life / 25)) + ",0)";
+        this.div.style.backgroundColor = this.rgb_code;
+        this.counter.innerHTML = this.life;
+    };
+
+    this.hit        = function(dmg_val) {
+        this.life  += dmg_val;
+        this.updateRgb();
+    };
 }
 
-function inc(player, inc_value)
+function addPlayer(div_in, counter_in)
 {
-    if(player === 1)
-    {
-        player_1_life += inc_value;
-        if(player_1_life < 0)
-            player_1_life = 0;
-    } else {
-        player_2_life += inc_value;
-        if(player_2_life < 0)
-            player_2_life = 0;
-    }
-
-    update_rgb();
+    let temp_player = new Player(div_in, counter_in);
+    players.push(temp_player);
 }
 
-update_rgb();
 
-life_buttons[0].addEventListener('click', function(){ inc(1, 5); });
-life_buttons[1].addEventListener('click', function(){ inc(1, 1); });
-life_buttons[2].addEventListener('click', function(){ inc(1, -1); });
-life_buttons[3].addEventListener('click', function(){ inc(1, -5); });
-life_buttons[4].addEventListener('click', function(){ inc(2, 5); });
-life_buttons[5].addEventListener('click', function(){ inc(2, 1); });
-life_buttons[6].addEventListener('click', function(){ inc(2, -1); });
-life_buttons[7].addEventListener('click', function(){ inc(2, -5); });
+let life_buttons    = document.querySelectorAll('.button');
+let player_names    = document.querySelectorAll('.player_name');
+let life_counts     = document.querySelectorAll('.player_life');
+let player_columns  = document.querySelectorAll('.column');
+
+addPlayer(player_columns[0], life_counts[0]);
+players[0].updateRgb();
+
+addPlayer(player_columns[1], life_counts[1]);
+players[1].updateRgb();
+
+life_buttons[0].addEventListener('click', function(){ players[0].hit(5); });
+life_buttons[1].addEventListener('click', function(){ players[0].hit(1); });
+life_buttons[2].addEventListener('click', function(){ players[0].hit(-1); });
+life_buttons[3].addEventListener('click', function(){ players[0].hit(-5); });
+life_buttons[4].addEventListener('click', function(){ players[1].hit(5); });
+life_buttons[5].addEventListener('click', function(){ players[1].hit(1); });
+life_buttons[6].addEventListener('click', function(){ players[1].hit(-1); });
+life_buttons[7].addEventListener('click', function(){ players[1].hit(-5); });
