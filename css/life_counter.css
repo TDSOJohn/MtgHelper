@@ -22,11 +22,6 @@ html, body {
     height: 100%;
 }
 
-.main_content h3 {
-    padding: 30px;
-    font-size: 36px;
-}
-
 .column {
     width: 50%;
     margin: 0;
@@ -42,9 +37,14 @@ html, body {
     width: 100%;
     margin: 0;
     padding: 50px;
+    font-size: 40px;
     box-sizing: border-box;
     background-color: #333;
     color: #eee;
+}
+
+.player_life {
+    font-size: 80px;
 }
 
 .button {
