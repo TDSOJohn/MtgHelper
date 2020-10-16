@@ -1,3 +1,3 @@
 <?php
-header( 'Location: life_counter.html');
+header( 'Location: main.html');
 ?>

@@ -1,0 +1,35 @@
+
+#intro {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 4%;
+
+    text-align: center;
+    background-color: #333;
+    color: #eee;
+}
+
+#selection_menu {
+    box-sizing: border-box;
+    padding: 6%;
+
+    text-align: center;
+    color: #eee;
+}
+
+.option {
+    padding: 20px;
+    width: 100px;
+
+    text-align: center;
+    background-color: #222;
+}
+
+.option:hover {
+    background-color: #444;
+}
+
+#selection_menu a {
+    text-decoration: none;
+    color: inherit;
+}

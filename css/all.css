@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'mtgFont';
+    src: url('../fonts/beleren-bold_P1.01.ttf') format('truetype'),
+    url('../fonts/beleren-boldP101.woff') format('woff');
+}
+
+.clr {
+    clear: both;
+}
+
+html, body {
+    font-family: 'mtgFont';
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #333;
+}
