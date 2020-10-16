@@ -61,6 +61,9 @@
 }
 
 @media screen and (orientation: landscape) and (max-width: 800px){
+    .column {
+        overflow: scroll;
+    }
     .main_content h3 {
         float: left;
     }
