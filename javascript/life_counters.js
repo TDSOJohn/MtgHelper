@@ -1,4 +1,29 @@
-var players = [];
+
+import * as utilities from './utilities.js';
+
+const baseURL       = '192.168.1.110';
+const templ_path    = '/html/';
+
+var players         = [];
+var domparser       = new DOMParser();
+var xhr             = new XMLHttpRequest();
+
+var main_content    = document.querySelector('.main_content');
+var player_columns;
+var life_counts;
+var life_buttons_p5;
+var life_buttons_p1;
+var life_buttons_m1;
+var life_buttons_m5;
+
+const callAPI       = async (myURL) =>
+{
+    let file        = "";
+
+    const response  = await fetch(myURL);
+    file            = await response.text();
+    return file;
+}
 
 //  Player class containing life, rgb value and DOM update methods and values
 function Player(div_in, counter_in)
@@ -26,23 +51,35 @@ function addPlayer(div_in, counter_in)
     players.push(temp_player);
 }
 
+function startup()
+{
+    let players_num = utilities.getQueryVariable('pl');
+    if(players_num  = -1) {
+        players_num = 2;
+    }
 
-let life_buttons    = document.querySelectorAll('.button');
-let player_names    = document.querySelectorAll('.player_name');
-let life_counts     = document.querySelectorAll('.player_life');
-let player_columns  = document.querySelectorAll('.column');
+    for(let i = 0; i < players_num; i++) {
+        addPlayer(player_columns[i], life_counts[i]);
+        player[i].updateRgb();
+    }
 
-addPlayer(player_columns[0], life_counts[0]);
-players[0].updateRgb();
+    player_columns  = document.querySelectorAll('.column');
+    life_counts     = document.querySelectorAll('.player_life');
+    life_buttons_p5 = document.querySelectorAll('.button_p5');
+    life_buttons_p1 = document.querySelectorAll('.button_p1');
+    life_buttons_m1 = document.querySelectorAll('.button_m1');
+    life_buttons_m5 = document.querySelectorAll('.button_m5');
 
-addPlayer(player_columns[1], life_counts[1]);
-players[1].updateRgb();
-
-life_buttons[0].addEventListener('click', function(){ players[0].hit(5); });
-life_buttons[1].addEventListener('click', function(){ players[0].hit(1); });
-life_buttons[2].addEventListener('click', function(){ players[0].hit(-1); });
-life_buttons[3].addEventListener('click', function(){ players[0].hit(-5); });
-life_buttons[4].addEventListener('click', function(){ players[1].hit(5); });
-life_buttons[5].addEventListener('click', function(){ players[1].hit(1); });
-life_buttons[6].addEventListener('click', function(){ players[1].hit(-1); });
-life_buttons[7].addEventListener('click', function(){ players[1].hit(-5); });
+    for(const button of life_buttons_p5) {
+        button.addEventListener('click', function() { players[0].hit(5); });
+    }
+    for(const button of life_buttons_p1) {
+        button.addEventListener('click', function() { players[0].hit(1); });
+    }
+    for(const button of life_buttons_m1) {
+        button.addEventListener('click', function() { players[0].hit(-1); });
+    }
+    for(const button of life_buttons_m5) {
+        button.addEventListener('click', function() { players[0].hit(-5); });
+    }
+}
