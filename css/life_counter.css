@@ -16,21 +16,12 @@
     overflow: hidden;
 }
 
-.player_name {
-    width: 100%;
-    margin: 0;
-    padding: 20px;
-    font-size: 40px;
-    box-sizing: border-box;
-    background-color: #333;
-    color: #eee;
-}
-
 .player_life {
     font-size: 80px;
 }
 
 .buttons {
+    display: block;
     margin: auto;
     width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
@@ -51,10 +42,6 @@
 }
 
 @media(max-width: 800px) {
-    .button {
-        width: 50%;
-    }
-
     .main_content h3 {
         padding: 15px;
     }
@@ -62,9 +49,12 @@
 
 @media screen and (orientation: landscape) and (max-width: 800px){
     .column {
-        overflow: scroll;
+        overflow: auto;
     }
     .main_content h3 {
         float: left;
+    }
+    .buttons {
+        float: right;
     }
 }
