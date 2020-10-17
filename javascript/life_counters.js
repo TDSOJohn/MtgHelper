@@ -57,11 +57,12 @@ function startup()
     if(players_num  = -1) {
         players_num = 2;
     }
+    alert(players_num);
 
-    for(let i = 0; i < players_num; i++) {
-        addPlayer(player_columns[i], life_counts[i]);
-        player[i].updateRgb();
-    }
+    let myURL = baseURL + templ_path + 'player_template.html';
+    callAPI(myURL).then(result => {
+        main_content.insertAdjacentHTML('beforeend', result);
+    });
 
     player_columns  = document.querySelectorAll('.column');
     life_counts     = document.querySelectorAll('.player_life');
@@ -69,6 +70,11 @@ function startup()
     life_buttons_p1 = document.querySelectorAll('.button_p1');
     life_buttons_m1 = document.querySelectorAll('.button_m1');
     life_buttons_m5 = document.querySelectorAll('.button_m5');
+
+    for(let i = 0; i < players_num; i++) {
+        addPlayer(player_columns[i], life_counts[i]);
+        player[i].updateRgb();
+    }
 
     for(const button of life_buttons_p5) {
         button.addEventListener('click', function() { players[0].hit(5); });
