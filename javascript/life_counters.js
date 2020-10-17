@@ -1,7 +1,7 @@
 
 import * as utilities from './utilities.js';
 
-const baseURL       = '192.168.1.110';
+const baseURL       = 'http://192.168.1.110';
 const templ_path    = '/github/mtg_helper/html/';
 
 var players         = [];
