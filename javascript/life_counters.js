@@ -60,6 +60,7 @@ function startup()
     alert(players_num);
 
     let myURL = baseURL + templ_path + 'player_template.html';
+    alert(myURL);
     callAPI(myURL).then(result => {
         main_content.insertAdjacentHTML('beforeend', result);
     });
@@ -73,7 +74,7 @@ function startup()
 
     for(let i = 0; i < players_num; i++) {
         addPlayer(player_columns[i], life_counts[i]);
-        player[i].updateRgb();
+        players[i].updateRgb();
     }
 
     for(const button of life_buttons_p5) {
