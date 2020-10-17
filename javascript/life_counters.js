@@ -89,3 +89,5 @@ function startup()
         button.addEventListener('click', function() { players[0].hit(-5); });
     }
 }
+
+window.onload = startup();
