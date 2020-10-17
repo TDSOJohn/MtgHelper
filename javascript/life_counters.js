@@ -67,10 +67,8 @@ function startup()
         callAPI(myURL).then(result => {
             main_content.insertAdjacentHTML('beforeend', result);
         });
-        addPlayer(player_columns[i], life_counts[i]);
-        players[i].updateRgb();
     }
-    
+
     player_columns  = document.querySelectorAll('.column');
     life_counts     = document.querySelectorAll('.player_life');
     life_buttons_p5 = document.querySelectorAll('.button_p5');
