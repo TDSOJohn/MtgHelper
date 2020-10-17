@@ -62,6 +62,15 @@ function startup()
     let myURL = baseURL + templ_path + 'player_template.html';
     alert(myURL);
 
+
+    for(let i = 0; i < players_num; i++) {
+        callAPI(myURL).then(result => {
+            main_content.insertAdjacentHTML('beforeend', result);
+        });
+        addPlayer(player_columns[i], life_counts[i]);
+        players[i].updateRgb();
+    }
+    
     player_columns  = document.querySelectorAll('.column');
     life_counts     = document.querySelectorAll('.player_life');
     life_buttons_p5 = document.querySelectorAll('.button_p5');
@@ -70,9 +79,6 @@ function startup()
     life_buttons_m5 = document.querySelectorAll('.button_m5');
 
     for(let i = 0; i < players_num; i++) {
-        callAPI(myURL).then(result => {
-            main_content.insertAdjacentHTML('beforeend', result);
-        });
         addPlayer(player_columns[i], life_counts[i]);
         players[i].updateRgb();
     }
