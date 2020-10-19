@@ -1,5 +1,5 @@
 
-import { getQueryVariable } from './utilities.js';
+import { getQueryVariable } from 'http://utilities.js';
 
 const baseURL       = 'http://192.168.1.110';
 const templ_path    = '/github/mtg_helper/html/';
