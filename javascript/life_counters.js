@@ -99,15 +99,17 @@ function startup()
 
     player_columns  = document.querySelectorAll('.column');
     life_counts     = document.querySelectorAll('.player_life');
-    life_buttons_p5 = document.querySelectorAll('.button_p5');
-    life_buttons_p1 = document.querySelectorAll('.button_p1');
-    life_buttons_m1 = document.querySelectorAll('.button_m1');
-    life_buttons_m5 = document.querySelectorAll('.button_m5');
 
     for(let i = 0; i < players_num; i++) {
         addPlayer(player_columns[i], life_counts[i]);
         players[i].updateRgb();
     }
+
+    life_buttons_p5 = document.querySelectorAll('.button_p5');
+    life_buttons_p1 = document.querySelectorAll('.button_p1');
+    life_buttons_m1 = document.querySelectorAll('.button_m1');
+    life_buttons_m5 = document.querySelectorAll('.button_m5');
+
     let i = 0;
     for(const button of life_buttons_p5) {
         button.addEventListener('click', function() { players[i].hit(5); });
