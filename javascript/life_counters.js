@@ -80,18 +80,25 @@ function startup()
         addPlayer(player_columns[i], life_counts[i]);
         players[i].updateRgb();
     }
-
+    let i = 0;
     for(const button of life_buttons_p5) {
-        button.addEventListener('click', function() { players[0].hit(5); });
+        button.addEventListener('click', function() { players[i].hit(5); });
+        i++;
     }
+    i = 0;
     for(const button of life_buttons_p1) {
         button.addEventListener('click', function() { players[0].hit(1); });
+        i++;
     }
+    i = 0;
     for(const button of life_buttons_m1) {
         button.addEventListener('click', function() { players[0].hit(-1); });
+        i++;
     }
+    i = 0;
     for(const button of life_buttons_m5) {
         button.addEventListener('click', function() { players[0].hit(-5); });
+        i++;
     }
 }
 
