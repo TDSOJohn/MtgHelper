@@ -53,7 +53,7 @@ function addPlayer(div_in, counter_in)
 
 function startup()
 {
-    let players_num = utilities.getQueryVariable('pl');
+    let players_num = getQueryVariable('pl');
     if(players_num  = -1) {
         players_num = 2;
     }
