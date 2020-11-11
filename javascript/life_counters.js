@@ -1,6 +1,6 @@
 
-const baseURL       = 'http://192.168.1.110';
-const templ_path    = '/github/mtg_helper/html/';
+const baseURL       = 'http://192.168.1.167';
+const templ_path    = '/mtg_helper/html/';
 
 var players         = [];
 var domparser       = new DOMParser();
