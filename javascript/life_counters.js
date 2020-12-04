@@ -1,6 +1,6 @@
 
-const baseURL       = 'http://192.168.1.167';
-const templ_path    = '/mtg_helper/html/';
+const baseURL       = 'http://127.0.0.1:8080';
+const templ_path    = '/html/';
 
 var players         = [];
 var domparser       = new DOMParser();
@@ -85,51 +85,59 @@ function startup()
     if(players_num  = -1) {
         players_num = 2;
     }
-    alert(players_num);
 
     let myURL = baseURL + templ_path + 'player_template.html';
-    alert(myURL);
 
-
-    for(let i = 0; i < players_num; i++) {
-        callAPI(myURL).then(result => {
+    callAPI(myURL)
+    .then(result => {
+        alert(result);
+        for(let i = 0; i < players_num; i++) {
             main_content.insertAdjacentHTML('beforeend', result);
-        });
-    }
+        }
+        alert("exiting first then");
+    })
+    .then(newRes => {
+        player_columns  = document.querySelectorAll('.column');
+        life_counts     = document.querySelectorAll('.player_life');
 
-    player_columns  = document.querySelectorAll('.column');
-    life_counts     = document.querySelectorAll('.player_life');
+        alert(player_columns.length);
+        alert(life_counts.length);
 
-    for(let i = 0; i < players_num; i++) {
-        addPlayer(player_columns[i], life_counts[i]);
-        players[i].updateRgb();
-    }
+        for(let i = 0; i < players_num; i++) {
+            addPlayer(player_columns[i], life_counts[i]);
+            players[i].updateRgb();
+        }
 
-    life_buttons_p5 = document.querySelectorAll('.button_p5');
-    life_buttons_p1 = document.querySelectorAll('.button_p1');
-    life_buttons_m1 = document.querySelectorAll('.button_m1');
-    life_buttons_m5 = document.querySelectorAll('.button_m5');
+        life_buttons_p5 = document.querySelectorAll('.button_p5');
+        life_buttons_p1 = document.querySelectorAll('.button_p1');
+        life_buttons_m1 = document.querySelectorAll('.button_m1');
+        life_buttons_m5 = document.querySelectorAll('.button_m5');
+        alert(players.length);
 
-    let i = 0;
-    for(const button of life_buttons_p5) {
-        button.addEventListener('click', function() { players[i].hit(5); });
-        i++;
-    }
-    i = 0;
-    for(const button of life_buttons_p1) {
-        button.addEventListener('click', function() { players[0].hit(1); });
-        i++;
-    }
-    i = 0;
-    for(const button of life_buttons_m1) {
-        button.addEventListener('click', function() { players[0].hit(-1); });
-        i++;
-    }
-    i = 0;
-    for(const button of life_buttons_m5) {
-        button.addEventListener('click', function() { players[0].hit(-5); });
-        i++;
-    }
+        let i = 0;
+        for(const button of life_buttons_p5) {
+            button.addEventListener('click', function() { players[i].hit(5); });
+            i++;
+        }
+        i = 0;
+        for(const button of life_buttons_p1) {
+            button.addEventListener('click', function() { players[i].hit(1); });
+            i++;
+        }
+        i = 0;
+        for(const button of life_buttons_m1) {
+            button.addEventListener('click', function() { players[i].hit(-1); });
+            i++;
+        }
+        i = 0;
+        for(const button of life_buttons_m5) {
+            button.addEventListener('click', function() { players[i].hit(-5); });
+            i++;
+        }
+    })
+    .catch(failure => {
+        alert(error);
+    });
 }
 
 window.onload = startup();
