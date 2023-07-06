@@ -7,6 +7,8 @@ var life_counts;
 var life_buttons_p1;
 var life_buttons_m1;
 
+var dice;
+
 //  client_side utilities
 
 //  Sanitizes string_in checking for ints. Warning: 11fxoifS => 11, a11b => NaN
@@ -42,6 +44,15 @@ function addPlayer(div_in, counter_in) {
     players.push(temp_player);
 }
 
+async function roll_dice() {
+    var rand_n;
+    for(let i = 0; i < 7; i++) {
+        rand_n = Math.floor(Math.random() * 6) + 1;
+        document.getElementById("d6").src = '../media/d6_' + rand_n + '.png';
+        await sleep(100);
+    }
+}
+
 function startup() {
     player_columns  = document.querySelectorAll('.column');
     life_counts     = document.querySelectorAll('.player_life');
@@ -59,7 +70,18 @@ function startup() {
     life_buttons_p1[1].addEventListener('click', function() { players[1].hit(1); });
     life_buttons_m1[0].addEventListener('click', function() { players[0].hit(-1); });
     life_buttons_m1[1].addEventListener('click', function() { players[1].hit(-1); });
-
+    
+    dice = document.querySelector('.dice');
+        
+    dice.addEventListener('click', () => roll_dice(), false);
 }
 
 window.onload = startup();
+
+
+
+
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
