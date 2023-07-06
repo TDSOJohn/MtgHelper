@@ -4,10 +4,8 @@ var main_content    = document.querySelector('.main_content');
 var players = [];
 var player_columns;
 var life_counts;
-var life_buttons_p5;
 var life_buttons_p1;
 var life_buttons_m1;
-var life_buttons_m5;
 
 //  client_side utilities
 
@@ -53,20 +51,14 @@ function startup() {
         players[i].updateRgb();
     }
 
-    life_buttons_p5 = document.querySelectorAll('.button_p5');
-    life_buttons_p1 = document.querySelectorAll('.button_p1');
-    life_buttons_m1 = document.querySelectorAll('.button_m1');
-    life_buttons_m5 = document.querySelectorAll('.button_m5');
+    life_buttons_p1 = document.querySelectorAll('.p1');
+    life_buttons_m1 = document.querySelectorAll('.m1');
 
     // is there a better option? not really elegante...
-    life_buttons_p5[0].addEventListener('click', function() { players[0].hit(5); });
-    life_buttons_p5[1].addEventListener('click', function() { players[1].hit(5); });
     life_buttons_p1[0].addEventListener('click', function() { players[0].hit(1); });
     life_buttons_p1[1].addEventListener('click', function() { players[1].hit(1); });
     life_buttons_m1[0].addEventListener('click', function() { players[0].hit(-1); });
     life_buttons_m1[1].addEventListener('click', function() { players[1].hit(-1); });
-    life_buttons_m5[0].addEventListener('click', function() { players[0].hit(-5); });
-    life_buttons_m5[1].addEventListener('click', function() { players[1].hit(-5); });
 
 }
 
