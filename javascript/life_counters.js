@@ -52,7 +52,7 @@ async function roll_dice() {
     const ctx = document.getElementById("d6").getContext("2d");
     for(let i = 0; i < 7; i++) {
         await sleep(100);
-        rand_n = Math.floor(Math.random() * 5) + 1;
+        rand_n = Math.floor(Math.random() * 6);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(d6_images[rand_n], 0, 0, canvas.width, canvas.height);
     }
