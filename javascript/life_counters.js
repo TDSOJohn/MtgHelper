@@ -8,6 +8,9 @@ var life_buttons_p1;
 var life_buttons_m1;
 
 var dice;
+var canvas = document.getElementById('d6');
+
+var d6_images = []
 
 //  client_side utilities
 
@@ -46,10 +49,12 @@ function addPlayer(div_in, counter_in) {
 
 async function roll_dice() {
     var rand_n;
+    const ctx = document.getElementById("d6").getContext("2d");
     for(let i = 0; i < 7; i++) {
-        rand_n = Math.floor(Math.random() * 6) + 1;
-        document.getElementById("d6").src = '../media/d6_' + rand_n + '.png';
         await sleep(100);
+        rand_n = Math.floor(Math.random() * 5) + 1;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(d6_images[rand_n], 0, 0, canvas.width, canvas.height);
     }
 }
 
@@ -74,6 +79,18 @@ function startup() {
     dice = document.querySelector('.dice');
         
     dice.addEventListener('click', () => roll_dice(), false);
+    
+    for(let i = 1; i <= 6; i++) {
+        var temp_image = new Image();
+        temp_image.src = '../media/d6_' + i + '.png';
+        d6_images.push(temp_image);
+    }
+    
+    const ctx = document.getElementById("d6").getContext("2d");
+    d6_images[5].onload = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(d6_images[5], 0, 0, canvas.width, canvas.height);        
+    }
 }
 
 window.onload = startup();
@@ -83,5 +100,5 @@ window.onload = startup();
 
 
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
