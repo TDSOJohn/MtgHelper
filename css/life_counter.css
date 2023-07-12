@@ -2,7 +2,7 @@ body {
     touch-action: manipulation;
 }
 
-.hidden_canvas_images {
+.hidden_item {
     display: none;
 }
 
@@ -13,7 +13,6 @@ body {
 }
 
 .column {
-    width: 50%;
     float: left;
     margin: 0;
     padding: 0;
@@ -23,7 +22,17 @@ body {
     overflow: hidden;
 }
 
-.player_life {
+.column_50 {
+    width: 50%;
+}
+.column_33 {
+    width: 33%;
+}
+.column_17 {
+    width: 17%;
+}
+
+.player_life, .player_poison {
     font-size: 80px;
     display: flex;
     justify-content: center;
@@ -32,7 +41,6 @@ body {
 }
 
 .button {
-    width: 50%;
     height: 50%;
     position: fixed;
     background-color: #333;
@@ -41,6 +49,24 @@ body {
     font-size: 30px;
     font-family: inherit;
     opacity: 0.1;
+}
+.button_50 {
+    width: 50%;
+}
+.button_33 {
+    width: 33%;    
+}
+.button_17 {
+    width: 17%;
+}
+
+.poison_toggle {
+    height: 64px;
+    position: fixed;
+    top: 50%;
+    left: 0%;
+    transform: translate(0, -50%);
+    z-index: 1;
 }
 
 .dice {
@@ -56,58 +82,96 @@ body {
     height: 76px;
 }
 
-.p1.player1 {
-    top: 0px;
-    left: 0px;
-}
-
-.m1.player1 {
-    top: 50%;
-    left: 0px;
-}
-
-.p1.player2 {
-    top: 0px;
-    left: 50%;
-}
-
-.m1.player2 {
-    top: 50%;
-    left: 50%;
-}
-
 .button:hover {
     background-color: #444;
 }
 
-@media (max-aspect-ratio: 1/1) {
-    .button {
-        width: 100%;
-        height: 25%;
-    }
-    
-    .p1.player1 {
+@media (min-aspect-ratio: 1/1) {
+    .p1.player1.button_50, .p1.player1.button_33, .p1.player1.button_17 {
         top: 0px;
         left: 0px;
     }
     
-    .m1.player1 {
-        top: 25%;
-        left: 0%;
-    }
-    
-    .p1.player2 {
+    .m1.player1.button_50, .m1.player1.button_33, .m1.player1.button_17 {
         top: 50%;
-        left: 0%;
+        left: 0px;
     }
     
-    .m1.player2 {
-        top: 75%;
-        left: 0%;
+    .p1.player2.button_50, .p1.player2.button_33 {
+        top: 0px;
+        left: 50%;
     }
     
-    .column {
+    .m1.player2.button_50, .m1.player2.button_33 {
+        top: 50%;
+        left: 50%;
+    }
+    
+    .p1p.player1.button_17 {
+        top: 0px;
+        left: 33%;
+    }
+    .m1p.player1.button_17 {
+        top: 50%;
+        left: 33%;
+    }
+    .p1p.player2.button_17 {
+        top: 0%;
+        left: 83%;
+    }
+    .m1p.player2.button_17 {
+        top: 50%;
+        left: 83%;
+    }
+}
+
+@media (max-aspect-ratio: 1/1) {
+    .button_50 {
         width: 100%;
+        height: 25%;
+    }
+    .button_33 {
+        width: 66%;
+        height: 25%;
+    }
+    .button_17 {
+        width: 34%;
+        height: 25%;
+    }
+    
+    .button_50, .button_33 {
+        left: 0%;
+    }
+    .p1.player1, .p1p.player1 {
+        top: 0%;
+    }
+    .m1.player1, .m1p.player1 {
+        top: 25%;
+    }
+    .p1.player2, .p1p.player2 {
+        top: 50%;
+    }
+    .m1.player2, .m1p.player2 {
+        top: 75%;
+    }
+    .p1p, .m1p {
+        left: 66%;
+    }
+    
+    .column_50 {
+        width: 100%;
+        display: block;
+        height: 50%;
+        overflow: auto;
+    }
+    .column_33 {
+        width: 66%;
+        display: block;
+        height: 50%;
+        overflow: auto;
+    }
+    .column_17 {
+        width: 34%;
         display: block;
         height: 50%;
         overflow: auto;

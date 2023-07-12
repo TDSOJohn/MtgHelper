@@ -21,23 +21,40 @@
         <img id="d6_5" src="../media/d6_5.png">
         <img id="d6_6" src="../media/d6_6.png">
     </div>
+    <div class="poison_toggle">
+        <img id="poison_image" src="../media/poison_toggle_off.png">
+    </div>
     <body>
         <div class="main_content">
-            <div class="column">
+            <div class="column column_50 life">
                 <div class="player_life player1"></div>
-                <button class="button p1 player1">+1</button>
+                <button class="button button_50 p1 player1">+1</button>
                 <div class="clr"></div>
-                <button class="button m1 player1">-1</button>
+                <button class="button button_50 m1 player1">-1</button>
+                <div class="clr"></div>
+            </div>
+            <div class="column column_17 poison">
+                <div class="player_poison player1"></div>
+                <button class="button button_17 p1p player1">+1</button>
+                <div class="clr"></div>
+                <button class="button button_17 m1p player1">-1</button>
                 <div class="clr"></div>
             </div>
             <div class="dice">
                 <canvas id="d6"></canvas>
             </div>
-            <div class="column">
+            <div class="column column_50 life">
                 <div class="player_life player2"></div>
-                <button class="button p1 player2">+1</button>
+                <button class="button button_50 p1 player2">+1</button>
                 <div class="clr"></div>
-                <button class="button m1 player2">-1</button>
+                <button class="button button_50 m1 player2">-1</button>
+                <div class="clr"></div>
+            </div>
+            <div class="column column_17 poison">
+                <div class="player_poison player2"></div>
+                <button class="button button_17 p1p player2">+1</button>
+                <div class="clr"></div>
+                <button class="button button_17 m1p player2">-1</button>
                 <div class="clr"></div>
             </div>
         </div>
