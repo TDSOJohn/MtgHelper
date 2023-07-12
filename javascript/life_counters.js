@@ -29,13 +29,13 @@ function Player(life_div_in, life_counter_in, poison_div_in, poison_counter_in) 
     this.poison_counter = poison_counter_in;
 
     this.update_rgb  = function() {
-        this.rgb_code   = "rgb(" + (255 * ((25 - this.life) / 25)) + "," + (255 * (this.life / 25)) + ",0)";
+        this.rgb_code = "rgb(" + (255 * ((25 - this.life) / 25)) + "," + (255 * (this.life / 25)) + ",0)";
         this.life_div.style.backgroundColor = this.rgb_code;
         this.life_counter.innerHTML = this.life;
     };
     
     this.update_poison = function() {
-        this.rgb_code   = "rgb(0," + (85 * (this.poison / 10)) + "," +  55 * (this.poison / 10) + ")";
+        this.rgb_code  = "rgb(0," + Math.min(85, (85 * (this.poison / 10))) + "," + Math.min(55, (55 * (this.poison / 10))) + ")";
         this.poison_div.style.backgroundColor = this.rgb_code;
         this.poison_counter.innerHTML = this.poison;        
     }

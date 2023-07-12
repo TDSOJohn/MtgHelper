@@ -40,6 +40,10 @@ body {
     height: 100%;
 }
 
+.player_poison {
+    color: white;
+}
+
 .button {
     height: 50%;
     position: fixed;
