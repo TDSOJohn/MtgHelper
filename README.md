@@ -1,6 +1,6 @@
 # MtgHelper
 
-[link to the website](https://tdsojohn.github.io/mtg_helper/index.html)
+[link to the website](https://tdsojohn.github.io/MtgHelper/index.html)
 
 html/css/js Magic the Gathering utility
 

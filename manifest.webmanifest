@@ -3,17 +3,17 @@
 	"name": "MTG Helper",
 	"icons": [
 		{
-			"src": "/icons/apple-touch-icon.png",
+			"src": "https://tdsojohn.github.io/MtgHelper/icons/apple-touch-icon.png",
 			"type": "image/png",
 			"sizes": "180x180"
 		},
 		{
-			"src": "/icons/icon_512.png",
+			"src": "https://tdsojohn.github.io/MtgHelper/icons/icon_512.png",
 			"type": "image/png",
 			"sizes": "512x512"
 		}
 	],
-	"start_url": "/index.html",
+	"start_url": "https://tdsojohn.github.io/MtgHelper/index.html",
 	"background_color": "#000000",
 	"display": "fullscreen",
 	"description": "A simple Magic the Gathering helper"
