@@ -13,6 +13,8 @@ var poison_toggle_button;
 var poison_toggle_image;
 var poison_toggled = false;
 
+var undo_button;
+
 var dice;
 var canvas;
 
@@ -47,6 +49,16 @@ function Player(life_div_in, life_counter_in, poison_div_in, poison_counter_in) 
     
     this.get_poison = function(poison_in) {
         this.poison += poison_in;
+        this.update_poison();
+    }
+    
+    this.set_life   = function(life_in) {
+        this.life   = life_in;
+        this.update_rgb();
+    }
+    
+    this.set_poison = function(poison_in) {
+        this.poison = poison_in;
         this.update_poison();
     }
 }
@@ -138,6 +150,15 @@ function startup() {
     
     poison_toggle_button = document.querySelector('.poison_toggle');
     poison_toggle_image = document.getElementById("poison_image");
+    
+    undo_button = document.querySelector('.undo_button');
+    
+    undo_button.addEventListener('click', () => {
+        players[0].set_life(20);
+        players[0].set_poison(0);
+        players[1].set_life(20);
+        players[1].set_poison(0);
+    }, false)
     
     poison_toggle_button.addEventListener('click', () => toggle_poison(), false);
 
