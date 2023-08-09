@@ -13,6 +13,26 @@
 			"sizes": "512x512"
 		}
 	],
+	"screenshots" : [
+		{
+	    	"src": "https://tdsojohn.github.io/MtgHelper/media/screenshots/screen_1.jpeg",
+	    	"sizes": "938x1920",
+	    	"type": "image/jpeg",
+	    	"label": "MTG Helper Homescreen"
+	    },
+	  	{
+	    	"src": "https://tdsojohn.github.io/MtgHelper/media/screenshots/screen_2.jpeg",
+	    	"sizes": "937x1920",
+	    	"type": "image/jpeg",
+	    	"label": "MTG Helper life counter"
+	  	},
+	  	{
+	    	"src": "https://tdsojohn.github.io/MtgHelper/media/screenshots/screen_3.jpeg",
+	    	"sizes": "938x1920",
+	    	"type": "image/jpeg",
+	    	"label": "MTG Helper poison counter"
+	  	}
+	]
 	"start_url": "https://tdsojohn.github.io/MtgHelper/index.html",
 	"background_color": "#000000",
 	"display": "fullscreen",
