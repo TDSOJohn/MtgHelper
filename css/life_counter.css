@@ -156,10 +156,10 @@ body {
         left: 0;
     }
     .p1.player1, .p1p.player1 {
-        top: 0;
+        top: 25%;
     }
     .m1.player1, .m1p.player1 {
-        top: 25%;
+        top: 0;
     }
     .p1.player2, .p1p.player2 {
         top: 50%;
@@ -169,6 +169,10 @@ body {
     }
     .p1p, .m1p {
         left: 66%;
+    }
+
+    .column > .player1 {
+        transform: scale(-1, -1);
     }
     
     .column_50 {
