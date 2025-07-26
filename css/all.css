@@ -9,6 +9,7 @@
 }
 
 html, body {
+    /*noinspection CssNoGenericFontName*/
     font-family: 'mtgFont';
     padding: 0;
     margin: 0;

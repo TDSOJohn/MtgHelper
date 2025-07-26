@@ -1,0 +1,24 @@
+.main_content {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.option {
+    display: block;
+    padding: 20px;
+    width: 200px;
+    margin: 20px auto;
+
+    text-align: center;
+
+    background-color: #222;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+
+    color: white;
+    font-size: 20px;
+}
+
+.option:hover {
+    background-color: #444;
+}
