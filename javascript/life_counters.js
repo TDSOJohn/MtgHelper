@@ -1,24 +1,24 @@
-var players = [];
-var player_life_columns;
-var life_counts;
-var life_buttons_p1;
-var life_buttons_m1;
+let players = [];
+let player_life_columns;
+let life_counts;
+let life_buttons_p1;
+let life_buttons_m1;
 
-var player_poison_columns;
-var poison_counts;
-var poison_buttons_p1;
-var poison_buttons_m1;
+let player_poison_columns;
+let poison_counts;
+let poison_buttons_p1;
+let poison_buttons_m1;
 
-var poison_toggle_button;
-var poison_toggle_image;
-var poison_toggled = false;
+let poison_toggle_button;
+let poison_toggle_image;
+let poison_toggled = false;
 
-var undo_button;
+let undo_button;
 
-var dice;
-var canvas;
+let dice;
+let canvas;
 
-var d6_images = []
+let d6_images = []
 
 //  Player class containing life, rgb value and DOM update methods and values
 function Player(life_div_in, life_counter_in, poison_div_in, poison_counter_in) {
@@ -71,7 +71,7 @@ function addPlayer(life_div_in, life_counter_in, poison_div_in, poison_counter_i
 
 // Generate d6 random values and change the canvas dice texture accordingly
 async function roll_dice() {
-    var rand_n;
+    let rand_n;
     const ctx = document.getElementById("d6").getContext("2d");
     for(let i = 0; i < 7; i++) {
         await sleep(100);
@@ -87,7 +87,7 @@ async function roll_dice() {
 // Change the classes 50-->33/17 or 33/17-->50
 function toggle_poison() {
     // Untoggle poison
-    if(poison_toggled == true) {
+    if(poison_toggled === true) {
         poison_toggle_image.src = "../media/poison_toggle_off.png";
         poison_toggled = false;
         for(let player_life_column of player_life_columns) {
@@ -162,7 +162,7 @@ function startup() {
     
     poison_toggle_button.addEventListener('click', () => toggle_poison(), false);
 
-    // is there a better option? not really elegante...
+    // is there a better option? not really elegant...
     life_buttons_p1[0].addEventListener('click', function() { players[0].hit(1); });
     life_buttons_p1[1].addEventListener('click', function() { players[1].hit(1); });
     life_buttons_m1[0].addEventListener('click', function() { players[0].hit(-1); });
@@ -179,7 +179,7 @@ function startup() {
     dice.addEventListener('click', () => roll_dice(), false);
     
     for(let i = 1; i <= 6; i++) {
-        var temp_image = new Image();
+        let temp_image = new Image();
         temp_image.src = '../media/d6_' + i + '.png';
         d6_images.push(temp_image);
     }
