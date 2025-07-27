@@ -1,69 +1,70 @@
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>MTG Helper</title>
-        
-        <meta name="viewport" content="initial-scale=1.0">
-        <meta name="apple-mobile-web-app-capable" content="yes">
+<head>
+    <meta charset="utf-8">
+    <title>MTG Helper</title>
 
-        <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
-        <link rel="shortcut icon" href="../icons/favicon.png"/>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
-        <link rel="stylesheet" type="text/css" media="all" href="../css/all.css">
-        <link rel="stylesheet" type="text/css" media="all" href="../css/life_counter.css"/>
+    <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+    <link rel="shortcut icon" href="../icons/favicon.png"/>
 
-        <script type="module" src="../javascript/life_counters.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="../css/all.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../css/life_counter.css"/>
 
-        <link rel="manifest" href="../manifest.webmanifest">
-    </head>
-    <div class="hidden_item">
-        <img id="d6_1" src="../media/d6_1.png" alt="You rolled a one!">
-        <img id="d6_2" src="../media/d6_2.png" alt="You rolled a two!">
-        <img id="d6_3" src="../media/d6_3.png" alt="You rolled a three!">
-        <img id="d6_4" src="../media/d6_4.png" alt="You rolled a four!">
-        <img id="d6_5" src="../media/d6_5.png" alt="You rolled a five!">
-        <img id="d6_6" src="../media/d6_6.png" alt="You rolled a six!">
-    </div>
-    <div class="poison_toggle">
-        <img id="poison_image" src="../media/poison_toggle_off.png" alt="Poison counter toggle">
-    </div>
-    <div class="undo_button">
-        <img id="undo_image" src="../media/undo_icon.png" alt="Undo button">
-    </div>
-    <body>
-        <div class="main_content">
-            <div class="column column_50 life">
-                <div class="player_life player1"></div>
-                <button class="button button_50 p1 player1">+1</button>
-                <div class="clr"></div>
-                <button class="button button_50 m1 player1">-1</button>
-                <div class="clr"></div>
-            </div>
-            <div class="column column_17 poison">
-                <div class="player_poison player1"></div>
-                <button class="button button_17 p1p player1">+1</button>
-                <div class="clr"></div>
-                <button class="button button_17 m1p player1">-1</button>
-                <div class="clr"></div>
-            </div>
-            <div class="dice">
-                <canvas id="d6"></canvas>
-            </div>
-            <div class="column column_50 life">
-                <div class="player_life player2"></div>
-                <button class="button button_50 p1 player2">+1</button>
-                <div class="clr"></div>
-                <button class="button button_50 m1 player2">-1</button>
-                <div class="clr"></div>
-            </div>
-            <div class="column column_17 poison">
-                <div class="player_poison player2"></div>
-                <button class="button button_17 p1p player2">+1</button>
-                <div class="clr"></div>
-                <button class="button button_17 m1p player2">-1</button>
-                <div class="clr"></div>
-            </div>
+    <script type="module" src="../javascript/life_counters.js"></script>
+
+    <link rel="manifest" href="../manifest.webmanifest">
+</head>
+<div class="hidden_item">
+    <img id="d6_1" src="../media/d6_1.png" alt="You rolled a one!">
+    <img id="d6_2" src="../media/d6_2.png" alt="You rolled a two!">
+    <img id="d6_3" src="../media/d6_3.png" alt="You rolled a three!">
+    <img id="d6_4" src="../media/d6_4.png" alt="You rolled a four!">
+    <img id="d6_5" src="../media/d6_5.png" alt="You rolled a five!">
+    <img id="d6_6" src="../media/d6_6.png" alt="You rolled a six!">
+</div>
+<div class="poison_toggle">
+    <img id="poison_image" src="../media/poison_toggle_off.png" alt="Poison counter toggle">
+</div>
+<div class="undo_button">
+    <img id="undo_image" src="../media/undo_icon.png" alt="Undo button">
+</div>
+<body>
+    <div class="main_content">
+        <div class="column column_50 life">
+            <div class="player_life player1"></div>
+            <button class="button button_50 p1 player1">+1</button>
+            <div class="clr"></div>
+            <button class="button button_50 m1 player1">-1</button>
+            <div class="clr"></div>
         </div>
-        <div class="clr"></div>
-    </body>
+        <div class="column column_17 poison">
+            <div class="player_poison player1"></div>
+            <button class="button button_17 p1p player1">+1</button>
+            <div class="clr"></div>
+            <button class="button button_17 m1p player1">-1</button>
+            <div class="clr"></div>
+        </div>
+        <div class="dice">
+            <canvas id="d6"></canvas>
+        </div>
+        <div class="column column_50 life">
+            <div class="player_life player2"></div>
+            <button class="button button_50 p1 player2">+1</button>
+            <div class="clr"></div>
+            <button class="button button_50 m1 player2">-1</button>
+            <div class="clr"></div>
+        </div>
+        <div class="column column_17 poison">
+            <div class="player_poison player2"></div>
+            <button class="button button_17 p1p player2">+1</button>
+            <div class="clr"></div>
+            <button class="button button_17 m1p player2">-1</button>
+            <div class="clr"></div>
+        </div>
+    </div>
+    <div class="clr"></div>
+</body>
 </html>
