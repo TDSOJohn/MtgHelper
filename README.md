@@ -14,7 +14,10 @@ Home Screen Icon:
 [Cards icon created by Victoruler - Flaticon](https://www.flaticon.com/free-icons/cards)
 
 Poison icon:
-[Poison icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/poison)
+[Poison icon created by Freepik - Flaticon](https://www.flaticon.com/free-icons/poison)
 
 Reset icon:
-[Reset icons created by Rahul Kaklotar - Flaticon](https://www.flaticon.com/free-icons/reset)
+[Reset icon created by Rahul Kaklotar - Flaticon](https://www.flaticon.com/free-icons/reset)
+
+Search icon:
+[Search icon created by chanut - Flaticon](https://www.flaticon.com/free-icon/magnifying-glass_151773?term=search&page=1&position=4&origin=search&related_id=151773)

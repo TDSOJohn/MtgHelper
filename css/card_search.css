@@ -22,3 +22,13 @@
 .option:hover {
     background-color: #444;
 }
+
+#card-entry {
+    text-align: center;
+}
+
+#card-entry > img {
+    display: block;
+    width: 480px;
+    margin: auto;
+}
