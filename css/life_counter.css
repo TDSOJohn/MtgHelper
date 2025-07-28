@@ -64,7 +64,7 @@ body {
     width: 17%;
 }
 
-.poison_toggle {
+#poison_button {
     height: 64px;
     position: fixed;
     top: 50%;
@@ -73,7 +73,7 @@ body {
     z-index: 1;
 }
 
-.undo_button {
+#undo_button {
     height: 64px;
     position: fixed;
     top: 95%;
@@ -91,7 +91,7 @@ body {
     z-index: 1;
 }
 
-.dice {
+#dice {
     position: fixed;
     top: 50%;
     left: 50%;

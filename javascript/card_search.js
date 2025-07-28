@@ -4,7 +4,7 @@ let card_preview;
 
 import {
     get_card
-} from "./card_fetch_api.mjs";
+} from "./modules/card_fetch_api.mjs";
 
 
 function startup() {

@@ -1,3 +1,6 @@
+import { Player } from "./modules/player.mjs"
+
+
 let players = [];
 let player_life_columns;
 let life_counts;
@@ -10,7 +13,7 @@ let poison_buttons_p1;
 let poison_buttons_m1;
 
 let poison_toggle_button;
-let poison_toggle_image;
+let poison_toggle_icon;
 let poison_toggled = false;
 
 let undo_button;
@@ -20,48 +23,6 @@ let canvas;
 
 let d6_images = []
 
-//  Player class containing life, rgb value and DOM update methods and values
-function Player(life_div_in, life_counter_in, poison_div_in, poison_counter_in) {
-    this.life       = 20;
-    this.poison     = 0;
-    this.rgb_code   = "";
-    this.life_div   = life_div_in;
-    this.life_counter = life_counter_in;
-    this.poison_div = poison_div_in;
-    this.poison_counter = poison_counter_in;
-
-    this.update_rgb  = function() {
-        this.rgb_code = "rgb(" + (255 * ((25 - this.life) / 25)) + "," + (255 * (this.life / 25)) + ",0)";
-        this.life_div.style.backgroundColor = this.rgb_code;
-        this.life_counter.innerHTML = this.life;
-    };
-    
-    this.update_poison = function() {
-        this.rgb_code  = "rgb(0," + Math.min(85, (85 * (this.poison / 10))) + "," + Math.min(55, (55 * (this.poison / 10))) + ")";
-        this.poison_div.style.backgroundColor = this.rgb_code;
-        this.poison_counter.innerHTML = this.poison;        
-    }
-
-    this.hit        = function(dmg_val) {
-        this.life  += dmg_val;
-        this.update_rgb();
-    };
-    
-    this.get_poison = function(poison_in) {
-        this.poison += poison_in;
-        this.update_poison();
-    }
-    
-    this.set_life   = function(life_in) {
-        this.life   = life_in;
-        this.update_rgb();
-    }
-    
-    this.set_poison = function(poison_in) {
-        this.poison = poison_in;
-        this.update_poison();
-    }
-}
 
 // Store useful divs in Player
 function addPlayer(life_div_in, life_counter_in, poison_div_in, poison_counter_in) {
@@ -88,7 +49,7 @@ async function roll_dice() {
 function toggle_poison() {
     // Untoggle poison
     if(poison_toggled === true) {
-        poison_toggle_image.src = "../media/poison_toggle_off.png";
+        poison_toggle_icon.src = "../media/poison_toggle_off.png";
         poison_toggled = false;
         for(let player_life_column of player_life_columns) {
             player_life_column.classList.remove("column_33");
@@ -107,7 +68,7 @@ function toggle_poison() {
         }
     } else {
         // Toggle poison
-        poison_toggle_image.src = "../media/poison_toggle_on.png";
+        poison_toggle_icon.src = "../media/poison_toggle_on.png";
         poison_toggled = true;
         for(let player_life_column of player_life_columns) {
             player_life_column.classList.remove("column_50");
@@ -127,6 +88,9 @@ function toggle_poison() {
     }
 }
 
+// Set all variables that point to html elements
+// Add all event listeners
+// Set starting life
 function startup() {
     player_life_columns  = document.querySelectorAll('.column_50');
     player_poison_columns = document.querySelectorAll('.poison');
@@ -148,10 +112,10 @@ function startup() {
     poison_buttons_p1 = document.querySelectorAll('.p1p');
     poison_buttons_m1 = document.querySelectorAll('.m1p');
     
-    poison_toggle_button = document.querySelector('.poison_toggle');
-    poison_toggle_image = document.getElementById("poison_image");
+    poison_toggle_button = document.getElementById('poison_button');
+    poison_toggle_icon = document.getElementById("poison_icon");
     
-    undo_button = document.querySelector('.undo_button');
+    undo_button = document.getElementById("undo_button");
     
     undo_button.addEventListener('click', () => {
         players[0].set_life(20);
@@ -173,7 +137,7 @@ function startup() {
     poison_buttons_m1[0].addEventListener('click', function() { players[0].get_poison(-1); });
     poison_buttons_m1[1].addEventListener('click', function() { players[1].get_poison(-1); });
 
-    dice = document.querySelector('.dice');
+    dice = document.getElementById('dice');
     canvas = document.getElementById('d6');
         
     dice.addEventListener('click', () => roll_dice(), false);
@@ -191,7 +155,9 @@ function startup() {
     }
 }
 
-window.onload = startup();
+window.onload = function() {
+    startup();
+}
 
 
 function sleep(ms) {
