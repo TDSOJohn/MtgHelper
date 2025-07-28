@@ -2,16 +2,6 @@ body {
     touch-action: manipulation;
 }
 
-.hidden_item {
-    display: none;
-}
-
-.main_content {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
 .column {
     float: left;
     margin: 0;
@@ -82,7 +72,7 @@ body {
     z-index: 1;
 }
 
-#search_button {
+#search_toggle_button {
     height: 64px;
     position: fixed;
     top: 5%;

@@ -2,6 +2,7 @@ import { Player } from "./modules/player.mjs"
 
 
 let players = [];
+let players_count = 2;
 let player_life_columns;
 let life_counts;
 let life_buttons_p1;
@@ -97,7 +98,7 @@ function startup() {
     life_counts     = document.querySelectorAll('.player_life');
     poison_counts   = document.querySelectorAll('.player_poison');
     
-    for(let i = 0; i < 2; i++) {
+    for(let i = 0; i < players_count; i++) {
         addPlayer(player_life_columns[i], life_counts[i], player_poison_columns[i], poison_counts[i]);
         players[i].update_rgb();
         players[i].update_poison();
@@ -158,7 +159,6 @@ function startup() {
 window.onload = function() {
     startup();
 }
-
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));

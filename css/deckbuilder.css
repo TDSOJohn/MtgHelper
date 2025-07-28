@@ -1,0 +1,8 @@
+#search_toggle_button {
+    height: 64px;
+    position: fixed;
+    top: 5%;
+    left: 0;
+    transform: translate(0, -50%);
+    z-index: 1;
+}

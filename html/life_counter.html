@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>MTG Helper</title>
+    <title>Life Counter</title>
 
     <meta name="viewport" content="initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,12 +12,14 @@
 
     <link rel="stylesheet" type="text/css" media="all" href="../css/all.css">
     <link rel="stylesheet" type="text/css" media="all" href="../css/life_counter.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../css/widgets/card_search.css"/>
 
-    <script type="module" src="../javascript/life_counters.js"></script>
+    <script type="module" src="../javascript/life_counter.js"></script>
+    <script type="module" src="../javascript/widgets/card_search_widget.js"></script>
 
     <link rel="manifest" href="../manifest.webmanifest">
 </head>
-<div class="hidden_item">
+<div id="hidden_items">
     <img id="d6_1" src="../media/d6_1.png" alt="You rolled a one!">
     <img id="d6_2" src="../media/d6_2.png" alt="You rolled a two!">
     <img id="d6_3" src="../media/d6_3.png" alt="You rolled a three!">
@@ -31,11 +33,11 @@
 <div id="undo_button">
     <img id="undo_icon" src="../media/undo_icon.png" alt="Undo button">
 </div>
-<div id="search_button">
+<div id="search_toggle_button">
     <img id="search_icon" src="../media/search_64.png" alt="Search button">
 </div>
 <body>
-    <div class="main_content">
+    <div id="main_content">
         <div class="column column_50 life">
             <div class="player_life player1"></div>
             <button class="button button_50 p1 player1">+1</button>
