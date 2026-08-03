@@ -32,7 +32,7 @@
 	    	"type": "image/jpeg",
 	    	"label": "MTG Helper poison counter"
 	  	}
-	]
+	],
 	"start_url": "https://tdsojohn.github.io/MtgHelper/index.html",
 	"background_color": "#000000",
 	"display": "fullscreen",

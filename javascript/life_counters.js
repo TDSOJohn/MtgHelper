@@ -191,7 +191,7 @@ function startup() {
     }
 }
 
-window.onload = startup();
+startup();
 
 
 function sleep(ms) {
