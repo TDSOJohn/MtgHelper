@@ -20,6 +20,9 @@ let canvas;
 
 let d6_images = []
 
+const STORAGE_KEY = 'mtg_helper_state';
+let booting = true;
+
 //  Player class containing life, rgb value and DOM update methods and values
 function Player(life_div_in, life_counter_in, poison_div_in, poison_counter_in) {
     this.life       = 20;
@@ -34,12 +37,14 @@ function Player(life_div_in, life_counter_in, poison_div_in, poison_counter_in) 
         this.rgb_code = "rgb(" + (255 * ((25 - this.life) / 25)) + "," + (255 * (this.life / 25)) + ",0)";
         this.life_div.style.backgroundColor = this.rgb_code;
         this.life_counter.innerHTML = this.life;
+        save_state();
     };
     
     this.update_poison = function() {
         this.rgb_code  = "rgb(0," + Math.min(85, (85 * (this.poison / 10))) + "," + Math.min(55, (55 * (this.poison / 10))) + ")";
         this.poison_div.style.backgroundColor = this.rgb_code;
-        this.poison_counter.innerHTML = this.poison;        
+        this.poison_counter.innerHTML = this.poison;
+        save_state();
     }
 
     this.hit        = function(dmg_val) {
@@ -125,6 +130,45 @@ function toggle_poison() {
             player_poison_column.style.display = 'block';
         }
     }
+
+    save_state();
+}
+
+// save life and poison to local storage
+function save_state() {
+    // goes back to 20/20 because update triggers before restore is finished otherwise
+    if(booting) return;
+
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            v: 1,
+            life:   [players[0].life,   players[1].life],
+            poison: [players[0].poison, players[1].poison],
+            poison_toggled: poison_toggled
+        }));
+    } catch(e) {
+        // private stuff throws
+    }
+}
+
+// Restore the previous data
+function load_state() {
+    let state;
+    try {
+        state = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    } catch(e) {
+        return;
+    }
+
+    if(!state || state.v !== 1) return;
+    if(!Array.isArray(state.life) || !Array.isArray(state.poison)) return;
+
+    players[0].set_life(state.life[0]);
+    players[1].set_life(state.life[1]);
+    players[0].set_poison(state.poison[0]);
+    players[1].set_poison(state.poison[1]);
+
+    if(state.poison_toggled) toggle_poison();
 }
 
 function startup() {
@@ -189,6 +233,9 @@ function startup() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(d6_images[5], 0, 0, canvas.width, canvas.height);        
     }
+
+    load_state();
+    booting = false;
 }
 
 startup();
