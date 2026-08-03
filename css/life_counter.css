@@ -64,19 +64,20 @@ body {
     width: 17%;
 }
 
+/* Top right: the same side the poison columns open on.
+   The left edge is kept clear for the per-player mana counters. */
 .poison_toggle {
     height: 64px;
     position: fixed;
-    top: 50%;
-    left: 0;
-    transform: translate(0, -50%);
+    top: 0;
+    right: 0;
     z-index: 1;
 }
 
 .undo_button {
     height: 64px;
     position: fixed;
-    top: 92%;
+    bottom: 0;
     left: 0;
     transform: translate(0, -50%);
     z-index: 1;
