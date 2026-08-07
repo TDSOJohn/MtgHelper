@@ -1,3 +1,5 @@
+import { init_mana, setup_mana_ui } from './mana_counters.js';
+
 let players = [];
 let player_life_columns;
 let life_counts;
@@ -32,6 +34,8 @@ function Player(life_div_in, life_counter_in, poison_div_in, poison_counter_in) 
     this.life_counter = life_counter_in;
     this.poison_div = poison_div_in;
     this.poison_counter = poison_counter_in;
+
+    init_mana(this);
 
     this.update_rgb  = function() {
         this.rgb_code = "rgb(" + (255 * ((25 - this.life) / 25)) + "," + (255 * (this.life / 25)) + ",0)";
@@ -134,9 +138,11 @@ function toggle_poison() {
     save_state();
 }
 
-// save life and poison to local storage
+// Persist the whole table state as one JSON blob on every change: iOS drops
+// backgrounded pages from memory, and unload events are unreliable there.
 function save_state() {
-    // goes back to 20/20 because update triggers before restore is finished otherwise
+    // startup() and load_state() both drive update_* before the restore is
+    // finished; saving then would clobber the stored game with a fresh 20/20.
     if(booting) return;
 
     try {
@@ -147,11 +153,13 @@ function save_state() {
             poison_toggled: poison_toggled
         }));
     } catch(e) {
-        // private stuff throws
+        // Private browsing / quota exceeded: the counter still works,
+        // it just won't survive a reload
     }
 }
 
-// Restore the previous data
+// Restore the previous game, if any. Must run at the end of startup():
+// toggle_poison() needs the button and image lookups already done.
 function load_state() {
     let state;
     try {
@@ -167,6 +175,9 @@ function load_state() {
     players[1].set_life(state.life[1]);
     players[0].set_poison(state.poison[0]);
     players[1].set_poison(state.poison[1]);
+
+    // Mana is deliberately not restored: a pool empties every phase, so it
+    // always starts at zero.
 
     if(state.poison_toggled) toggle_poison();
 }
@@ -187,6 +198,8 @@ function startup() {
         poison_column.style.display = 'none';
     }
 
+    setup_mana_ui(players);
+
     life_buttons_p1 = document.querySelectorAll('.p1');
     life_buttons_m1 = document.querySelectorAll('.m1');
     poison_buttons_p1 = document.querySelectorAll('.p1p');
@@ -200,8 +213,10 @@ function startup() {
     undo_button.addEventListener('click', () => {
         players[0].set_life(20);
         players[0].set_poison(0);
+        players[0].clear_mana();
         players[1].set_life(20);
         players[1].set_poison(0);
+        players[1].clear_mana();
     }, false)
     
     poison_toggle_button.addEventListener('click', () => toggle_poison(), false);
