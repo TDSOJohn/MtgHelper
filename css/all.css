@@ -17,3 +17,11 @@ html, body {
     overflow: hidden;
     background-color: #333;
 }
+
+/* No pinch or double-tap zoom (Safari ignores the viewport's user-scalable=no).
+   Set on every element rather than just html, since Safari doesn't carry
+   touch-action into scrolling boxes: body on the lands page, the counter
+   columns in portrait */
+* {
+    touch-action: pan-x pan-y;
+}

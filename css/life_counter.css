@@ -1,7 +1,3 @@
-body {
-    touch-action: manipulation;
-}
-
 .hidden_item {
     display: none;
 }

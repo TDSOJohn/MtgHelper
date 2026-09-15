@@ -88,7 +88,7 @@ function update_decklist() {
         lines.push(entry.count + ' ' + entry.name);
     }
 
-    decklist_text.value = lines.join('\n');
+    decklist_text.textContent = lines.join('\n');
     decklist_total.textContent = total + (total === 1 ? ' card' : ' cards');
     download_button.disabled = (lines.length === 0);
 }
@@ -96,7 +96,7 @@ function update_decklist() {
 // Save the list as a .txt named after its colors, e.g. lands_WUB.txt
 function download_decklist() {
     let color_code = MANA.map(mana => mana.key).filter(key => chosen_colors.has(key)).join('');
-    let file = new Blob([decklist_text.value + '\n'], { type: 'text/plain' });
+    let file = new Blob([decklist_text.textContent + '\n'], { type: 'text/plain' });
 
     let link = document.createElement('a');
     link.href = URL.createObjectURL(file);
