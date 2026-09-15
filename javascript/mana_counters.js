@@ -5,7 +5,7 @@
 
 // rgb is the colour at a full pool (MANA_MAX); an empty pool is drawn at half
 // that brightness and scales linearly up to it.
-const MANA = [
+export const MANA = [
     { key: 'W', rgb: [248, 231, 185] },
     { key: 'U', rgb: [ 14, 104, 171] },
     { key: 'B', rgb: [ 96,  86, 102] },

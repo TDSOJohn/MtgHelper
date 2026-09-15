@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Lands Generator</title>
+
+        <meta name="viewport" content="initial-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+        <link rel="shortcut icon" href="../icons/favicon.png"/>
+
+        <link rel="stylesheet" type="text/css" media="all" href="../css/all.css">
+        <link rel="stylesheet" type="text/css" media="all" href="../css/lands_generator.css"/>
+
+        <script type="module" src="../javascript/lands_generator.js"></script>
+
+        <link rel="manifest" href="../manifest.webmanifest">
+    </head>
+
+    <body>
+        <div class="main_content">
+            <h1>Lands Generator</h1>
+
+            <h2>Colors</h2>
+            <div class="color_toggles"></div>
+
+            <!-- One section per number of colors, filled by lands_generator.js -->
+            <div class="cycles"></div>
+
+            <div class="list_header">
+                <h2>List</h2>
+                <span class="decklist_total"></span>
+            </div>
+            <textarea class="decklist" readonly
+                      placeholder="Pick your colors and how many of each land"></textarea>
+            <button class="download_button">Download .txt</button>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,158 @@
+/* all.css pins the page to the screen for the counters; this page is a long
+   list, so it has to scroll */
+html, body {
+    height: auto;
+    overflow: auto;
+}
+
+body {
+    touch-action: manipulation;
+    color: #eee;
+}
+
+.main_content {
+    box-sizing: border-box;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 16px 16px 32px;
+}
+
+/* Beleren only ships a bold face: don't fake-bold it again on top */
+h1, h2 {
+    font-weight: normal;
+}
+
+h1 {
+    margin: 8px 0 16px;
+    text-align: center;
+}
+
+h2 {
+    margin: 24px 0 8px;
+    font-size: 20px;
+}
+
+button {
+    border-width: 0;
+    font-family: inherit;
+}
+
+.color_toggles {
+    display: flex;
+    gap: 12px;
+}
+
+/* The background comes from the mana counters' palette, set in JS */
+.color_toggle {
+    flex: 1;
+    height: 56px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 26px;
+    text-shadow: 0 0 6px #000;
+    opacity: 0.25;
+}
+
+.color_toggle.chosen {
+    opacity: 1;
+    outline: 3px solid #eee;
+    outline-offset: 2px;
+}
+
+.cycle_row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 12px;
+    margin-bottom: 8px;
+    padding: 10px 12px;
+    background-color: #222;
+    border-radius: 8px;
+}
+
+/* Cycles left out of the list stay dimmed */
+.cycle_label {
+    flex: 1 1 80px;
+    min-width: 0;
+    opacity: 0.5;
+}
+.cycle_row.included .cycle_label {
+    opacity: 1;
+}
+
+.cycle_name {
+    font-size: 18px;
+}
+
+.cycle_example {
+    margin-top: 2px;
+    font-size: 13px;
+    color: #999;
+}
+
+.copies_picker {
+    display: flex;
+    gap: 4px;
+}
+
+.copies_button {
+    width: 36px;
+    height: 40px;
+    border-radius: 6px;
+    background-color: #333;
+    color: #eee;
+    font-size: 18px;
+}
+
+.copies_button.chosen {
+    background-color: #eee;
+    color: #222;
+}
+
+/* 0 is the resting state: mark it without making every row shout */
+.copies_button.chosen:first-child {
+    background-color: #555;
+    color: #eee;
+}
+
+.list_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.decklist_total {
+    font-size: 16px;
+    color: #999;
+}
+
+.decklist {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 240px;
+    padding: 12px;
+    border-width: 0;
+    border-radius: 8px;
+    background-color: #222;
+    color: #eee;
+    font-family: inherit;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.download_button {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #eee;
+    color: #222;
+    font-size: 20px;
+}
+
+.download_button:disabled {
+    opacity: 0.3;
+}
